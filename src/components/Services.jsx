@@ -72,7 +72,7 @@ export default function Services({ preview = false }) {
               <h3 className="mt-5 text-lg font-bold text-ink">{title}</h3>
               <p className="mt-2 text-sm leading-relaxed text-ink/70">{desc}</p>
               <Link
-                to="/contact"
+                to={`/contact?service=${encodeURIComponent(title)}`}
                 className="mt-4 inline-block text-sm font-semibold text-ink underline-offset-4 hover:text-leaf-dark hover:underline"
               >
                 Book this service →
@@ -109,11 +109,11 @@ export default function Services({ preview = false }) {
               </div>
             </div>
             <Link
-              to="/contact"
-              className="shrink-0 rounded-full bg-mint px-7 py-3 font-semibold text-ink transition hover:bg-white"
-            >
-              Request a Quote
-            </Link>
+  to={`/contact?service=${encodeURIComponent('High-Rise Window Cleaning')}`}
+  className="shrink-0 rounded-full bg-mint px-7 py-3 font-semibold text-ink transition hover:bg-white"
+>
+  Request a Quote
+</Link>
           </div>
         )}
       </div>

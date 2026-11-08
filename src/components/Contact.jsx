@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { useSearchParams } from 'react-router-dom'
 import { Phone, Mail, MapPin, MessageCircle } from 'lucide-react'
 
 const WHATSAPP_NUMBER = '923288129327' // 0328 8129327 in international format
@@ -14,14 +15,20 @@ const serviceOptions = [
 ]
 
 export default function Contact() {
+  const [searchParams] = useSearchParams()
+  const requested = searchParams.get('service')
+
   const [form, setForm] = useState({
     name: '',
     phone: '',
-    service: serviceOptions[0],
+    // Preselect only if the address contains a valid service, otherwise ask them to choose
+    service: serviceOptions.includes(requested) ? requested : '',
     message: '',
   })
 
   const update = (e) => setForm({ ...form, [e.target.name]: e.target.value })
+
+  const isOther = form.service === 'Other'
 
   const handleSubmit = (e) => {
     e.preventDefault()
@@ -104,17 +111,34 @@ export default function Contact() {
             placeholder="Your phone number"
             className={inputClass}
           />
-          <select name="service" value={form.service} onChange={update} className={inputClass}>
+          <select
+            name="service"
+            value={form.service}
+            onChange={update}
+            required
+            className={`${inputClass} ${form.service === '' ? 'text-ink/50' : ''}`}
+          >
+            <option value="" disabled>
+              Select a service
+            </option>
             {serviceOptions.map((s) => (
-              <option key={s}>{s}</option>
+              <option key={s} value={s}>
+                {s}
+              </option>
             ))}
+            <option value="Other">Other</option>
           </select>
           <textarea
             name="message"
             value={form.message}
             onChange={update}
+            required={isOther}
             rows={4}
-            placeholder="Tell us about your property and what you need (optional)"
+            placeholder={
+              isOther
+                ? 'Please tell us what service you need'
+                : 'Tell us about your property and what you need (optional)'
+            }
             className={inputClass}
           />
           <button
