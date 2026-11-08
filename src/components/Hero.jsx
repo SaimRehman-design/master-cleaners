@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import heroImg from '../assets/images/hero-cleaning.jpg'
 import { Phone, CheckCircle2 } from 'lucide-react'
 
 export default function Hero() {
@@ -41,10 +42,14 @@ export default function Hero() {
           </ul>
         </div>
 
-        {/* Image placeholder: we'll swap in real photography later */}
-        <div className="flex aspect-[4/3] items-center justify-center rounded-3xl bg-mint-deep text-lg font-semibold text-ink/50 shadow-xl">
-          Cleaning photo goes here
-        </div>
+        <img
+          src={heroImg}
+          alt="Professional cleaner at work in a bright, spotless home in Lahore"
+          width="1600"
+          height="1200"
+          fetchPriority="high"
+          className="aspect-[4/3] w-full rounded-3xl object-cover shadow-xl"
+        />
       </div>
     </section>
   )

@@ -1,5 +1,5 @@
 import { CheckCircle2 } from 'lucide-react'
-
+import aboutImg from '../assets/images/about-team.jpg'
 const points = [
   'Based in DHA Phase 1, Lahore',
   'Homes, offices and high-rise buildings',
@@ -10,10 +10,14 @@ export default function About() {
   return (
     <section id="about" className="bg-white py-16 md:py-24">
       <div className="mx-auto grid max-w-6xl items-center gap-12 px-5 md:grid-cols-2">
-        {/* Image placeholder: real photo comes later */}
-        <div className="flex aspect-[4/3] items-center justify-center rounded-3xl bg-mint-deep text-lg font-semibold text-ink/50 shadow-xl">
-          Team photo goes here
-        </div>
+      <img
+        src={aboutImg}
+        alt="Master Cleaners team cleaning a home in Lahore"
+        width="1200"
+        height="900"
+        loading="lazy"
+        className="aspect-[4/3] w-full rounded-3xl object-cover shadow-xl"
+      />
 
         <div>
           <p className="text-sm font-semibold uppercase tracking-wider text-leaf-dark">

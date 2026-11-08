@@ -2,6 +2,15 @@ import { useState } from 'react'
 import { useSearchParams } from 'react-router-dom'
 import { Phone, Mail, MapPin, MessageCircle } from 'lucide-react'
 
+import heroImg from '../assets/images/hero-cleaning.jpg'
+import deepImg from '../assets/images/service-deep-cleaning.jpg'
+import generalImg from '../assets/images/service-general-cleaning.jpg'
+import interiorImg from '../assets/images/service-interior-cleaning.jpg'
+import exteriorImg from '../assets/images/service-exterior-cleaning.jpg'
+import windowImg from '../assets/images/service-window-cleaning.jpg'
+import washingImg from '../assets/images/service-window-washing.jpg'
+import highRiseImg from '../assets/images/service-high-rise.jpg'
+
 const WHATSAPP_NUMBER = '923288129327' // 0328 8129327 in international format
 const BUSINESS_EMAIL = 'mastercleaners@gmail.com'
 
@@ -14,6 +23,17 @@ const serviceOptions = [
   'Inside & Outside Window Washing',
   'High-Rise Window Cleaning',
 ]
+
+// Background photo for each service (hero photo is the default)
+const serviceImages = {
+  'Deep Cleaning': deepImg,
+  'General Cleaning': generalImg,
+  'Interior Cleaning': interiorImg,
+  'Exterior Cleaning': exteriorImg,
+  'Window Cleaning': windowImg,
+  'Inside & Outside Window Washing': washingImg,
+  'High-Rise Window Cleaning': highRiseImg,
+}
 
 // Validation rules
 const nameRegex = /^[A-Za-z\u0600-\u06FF][A-Za-z\u0600-\u06FF\s.'-]+$/
@@ -35,6 +55,8 @@ export default function Contact() {
   const [errors, setErrors] = useState({})
 
   const isOther = form.service === 'Other'
+const backgrounds = { default: heroImg, ...serviceImages }
+const activeBg = serviceImages[form.service] ? form.service : 'default'
 
   const update = (e) => {
     const { name } = e.target
@@ -109,16 +131,31 @@ export default function Contact() {
     errors[field] ? <p className="mt-1.5 text-sm text-red-600">{errors[field]}</p> : null
 
   return (
-    <section id="contact" className="bg-white py-16 md:py-24">
+<section id="contact" className="relative isolate overflow-hidden bg-ink py-16 md:py-24">
+      {/* Blurred photo backgrounds: all stacked, the selected one fades in */}
+{Object.entries(backgrounds).map(([key, src]) => (
+  <img
+    key={key}
+    src={src}
+    alt=""
+    aria-hidden="true"
+    className={`absolute inset-0 -z-20 h-full w-full scale-110 object-cover blur-[3px] transition-opacity duration-700 ease-in-out ${
+      key === activeBg ? 'opacity-100' : 'opacity-0'
+    }`}
+  />
+))}
+      {/* Matte overlay */}
+      <div className="absolute inset-0 -z-10 bg-ink/75" />
+
       <div className="mx-auto grid max-w-6xl gap-12 px-5 md:grid-cols-2">
         <div>
-          <p className="text-sm font-semibold uppercase tracking-wider text-leaf-dark">
+          <p className="text-sm font-semibold uppercase tracking-wider text-mint">
             Contact Us
           </p>
-          <h2 className="mt-3 text-3xl font-extrabold text-ink md:text-4xl">
+          <h2 className="mt-3 text-3xl font-extrabold text-white md:text-4xl">
             Book Your Cleaning Service Today
           </h2>
-          <p className="mt-4 text-ink/70">
+          <p className="mt-4 text-white/80">
             Fill in the form and send your request by WhatsApp or email, or reach us directly
             using the details below.
           </p>
@@ -128,7 +165,7 @@ export default function Contact() {
               <span className={iconBox}>
                 <Phone size={20} />
               </span>
-              <a href="tel:03288129327" className="font-medium text-ink hover:text-leaf-dark">
+              <a href="tel:03288129327" className="font-medium text-white hover:text-mint">
                 0328 8129327
               </a>
             </li>
@@ -138,7 +175,7 @@ export default function Contact() {
               </span>
               <a
                 href={`mailto:${BUSINESS_EMAIL}`}
-                className="font-medium text-ink hover:text-leaf-dark"
+                className="font-medium text-white hover:text-mint"
               >
                 {BUSINESS_EMAIL}
               </a>
@@ -147,7 +184,7 @@ export default function Contact() {
               <span className={iconBox}>
                 <MapPin size={20} />
               </span>
-              <span className="font-medium text-ink">DHA Phase 1, Lahore, Pakistan</span>
+              <span className="font-medium text-white">DHA Phase 1, Lahore, Pakistan</span>
             </li>
           </ul>
         </div>
@@ -155,7 +192,7 @@ export default function Contact() {
         <form
           noValidate
           onSubmit={handleSubmit}
-          className="space-y-4 rounded-3xl bg-mint p-6 md:p-8"
+          className="space-y-4 rounded-3xl bg-mint p-6 shadow-xl md:p-8"
         >
           <div>
             <input
