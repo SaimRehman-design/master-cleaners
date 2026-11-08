@@ -42,7 +42,8 @@ const services = [
   },
 ]
 
-export default function Services() {
+export default function Services({ preview = false }) {
+  const list = preview ? services.slice(0, 3) : services
   return (
     <section id="services" className="bg-white py-16 md:py-24">
       <div className="mx-auto max-w-6xl px-5">
@@ -60,7 +61,7 @@ export default function Services() {
 
         {/* 6 cards in an even grid */}
         <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {services.map(({ title, desc, icon: Icon }) => (
+        {list.map(({ title, desc, icon: Icon }) => (
             <div
               key={title}
               className="group rounded-2xl border border-slate-100 bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:border-teal-200 hover:shadow-lg"
@@ -71,16 +72,26 @@ export default function Services() {
               <h3 className="mt-5 text-lg font-bold text-slate-900">{title}</h3>
               <p className="mt-2 text-sm leading-relaxed text-slate-600">{desc}</p>
               <Link
-  to="/contact"
-  className="mt-4 inline-block text-sm font-semibold text-teal-600 hover:text-teal-700"
->
-  Book this service →
-</Link>
+                to="/contact"
+                className="mt-4 inline-block text-sm font-semibold text-teal-600 hover:text-teal-700"
+              >
+                Book this service →
+              </Link>
             </div>
           ))}
         </div>
-
+        {preview && (
+          <div className="mt-10 text-center">
+            <Link
+              to="/services"
+              className="inline-block rounded-full border border-teal-500 px-8 py-3 font-semibold text-teal-600 transition hover:bg-teal-500 hover:text-white"
+            >
+              View All 7 Services
+            </Link>
+          </div>
+        )}
         {/* Featured 7th service */}
+        {!preview && (
         <div className="mt-6 flex flex-col items-start gap-6 rounded-2xl bg-slate-900 p-8 md:flex-row md:items-center md:justify-between md:p-10">
           <div className="flex items-start gap-5">
             <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-xl bg-teal-500 text-white">
@@ -97,12 +108,13 @@ export default function Services() {
             </div>
           </div>
           <Link
-  to="/contact"
-  className="shrink-0 rounded-full bg-teal-500 px-7 py-3 font-semibold text-white transition hover:bg-teal-400"
->
-  Request a Quote
-</Link>
+              to="/contact"
+              className="shrink-0 rounded-full bg-teal-500 px-7 py-3 font-semibold text-white transition hover:bg-teal-400"
+            >
+              Request a Quote
+          </Link>
         </div>
+        )} 
       </div>
     </section>
   )
