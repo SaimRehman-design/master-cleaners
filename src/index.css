@@ -1,2 +1,9 @@
-
 @import "tailwindcss";
+
+@theme {
+  --color-mint: #EAF9E6;
+  --color-mint-deep: #D3F0CC;
+  --color-ink: #0A0A0A;
+  --color-leaf: #16A34A;
+  --color-leaf-dark: #15803D;
+}

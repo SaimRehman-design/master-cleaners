@@ -25,13 +25,13 @@ const reasons = [
 
 export default function WhyChooseUs() {
   return (
-    <section className="bg-white py-16 md:py-24">
+    <section className="bg-mint py-16 md:py-24">
       <div className="mx-auto max-w-6xl px-5">
         <div className="mx-auto max-w-2xl text-center">
-          <p className="text-sm font-semibold uppercase tracking-wider text-teal-600">
+          <p className="text-sm font-semibold uppercase tracking-wider text-leaf-dark">
             Why Choose Us
           </p>
-          <h2 className="mt-3 text-3xl font-extrabold text-slate-900 md:text-4xl">
+          <h2 className="mt-3 text-3xl font-extrabold text-ink md:text-4xl">
             Cleaning You Can Count On
           </h2>
         </div>
@@ -39,11 +39,11 @@ export default function WhyChooseUs() {
         <div className="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
           {reasons.map(({ title, desc, icon: Icon }) => (
             <div key={title} className="text-center">
-              <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-teal-50 text-teal-600">
+              <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-white text-leaf shadow-sm">
                 <Icon size={28} />
               </div>
-              <h3 className="mt-5 text-lg font-bold text-slate-900">{title}</h3>
-              <p className="mt-2 text-sm leading-relaxed text-slate-600">{desc}</p>
+              <h3 className="mt-5 text-lg font-bold text-ink">{title}</h3>
+              <p className="mt-2 text-sm leading-relaxed text-ink/70">{desc}</p>
             </div>
           ))}
         </div>

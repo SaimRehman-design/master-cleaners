@@ -14,20 +14,20 @@ export default function Navbar() {
   const [open, setOpen] = useState(false)
 
   const linkClass = ({ isActive }) =>
-    `text-sm font-medium transition hover:text-teal-600 ${
-      isActive ? 'text-teal-600' : 'text-slate-600'
+    `text-sm font-medium transition hover:text-leaf-dark ${
+      isActive ? 'text-leaf-dark' : 'text-ink/70'
     }`
 
   const mobileLinkClass = ({ isActive }) =>
-    `block rounded-lg px-3 py-2 font-medium hover:bg-teal-50 ${
-      isActive ? 'bg-teal-50 text-teal-700' : 'text-slate-700'
+    `block rounded-lg px-3 py-2 font-medium hover:bg-mint-deep ${
+      isActive ? 'bg-mint-deep text-leaf-dark' : 'text-ink'
     }`
 
   return (
-    <header className="sticky top-0 z-50 border-b border-slate-100 bg-white/90 backdrop-blur">
+    <header className="sticky top-0 z-50 border-b border-mint-deep bg-mint/95 backdrop-blur">
       <nav className="mx-auto flex max-w-6xl items-center justify-between px-5 py-4">
-        <Link to="/" className="flex items-center gap-2 text-xl font-bold text-slate-900">
-          <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-teal-500 text-white">
+        <Link to="/" className="flex items-center gap-2 text-xl font-bold text-ink">
+          <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-leaf text-white">
             <Sparkles size={20} />
           </span>
           Master Cleaners
@@ -45,7 +45,7 @@ export default function Navbar() {
           <li>
             <Link
               to="/contact"
-              className="rounded-full bg-teal-500 px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-teal-600"
+              className="rounded-full bg-ink px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-leaf-dark"
             >
               Book Now
             </Link>
@@ -54,7 +54,7 @@ export default function Navbar() {
 
         {/* Mobile toggle */}
         <button
-          className="text-slate-900 md:hidden"
+          className="text-ink md:hidden"
           onClick={() => setOpen(!open)}
           aria-label="Toggle menu"
         >
@@ -64,7 +64,7 @@ export default function Navbar() {
 
       {/* Mobile menu */}
       {open && (
-        <ul className="space-y-1 border-t border-slate-100 bg-white px-5 pb-5 pt-3 md:hidden">
+        <ul className="space-y-1 border-t border-mint-deep bg-mint px-5 pb-5 pt-3 md:hidden">
           {links.map((l) => (
             <li key={l.to}>
               <NavLink
@@ -81,7 +81,7 @@ export default function Navbar() {
             <Link
               to="/contact"
               onClick={() => setOpen(false)}
-              className="mt-2 block rounded-full bg-teal-500 px-5 py-3 text-center font-semibold text-white"
+              className="mt-2 block rounded-full bg-ink px-5 py-3 text-center font-semibold text-white"
             >
               Book Now
             </Link>
