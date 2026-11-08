@@ -18,20 +18,20 @@ export default function Hero() {
             professional high-rise window cleaning, Master Cleaners is ready to help.
           </p>
 
-          <div className="mt-8 flex flex-col gap-4 sm:flex-row">
-            <Link
-              to="/contact"
-              className="rounded-full bg-ink px-8 py-4 text-center font-semibold text-white shadow-lg transition hover:bg-leaf-dark"
-            >
-              Book Your Cleaning Service Today
-            </Link>
-            <a
-              href="tel:03288129327"
-              className="flex items-center justify-center gap-2 rounded-full border border-ink/20 bg-white px-8 py-4 font-semibold text-ink transition hover:border-ink"
-            >
-              <Phone size={18} /> 0328 8129327
-            </a>
-          </div>
+          <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:flex-wrap">
+  <Link
+    to="/contact"
+    className="whitespace-nowrap rounded-full bg-ink px-6 py-4 text-center font-semibold text-white shadow-lg transition hover:bg-leaf-dark"
+  >
+    Book Your Cleaning Service Today
+  </Link>
+  <a
+    href="tel:03288129327"
+    className="flex items-center justify-center gap-2 whitespace-nowrap rounded-full border border-ink/20 bg-white px-6 py-4 font-semibold text-ink transition hover:border-ink"
+  >
+    <Phone size={18} /> 0328 8129327
+  </a>
+</div>
 
           <ul className="mt-8 flex flex-wrap gap-x-6 gap-y-2 text-sm text-ink/70">
             {['Trained professionals', 'Reliable service', 'Homes & offices'].map((t) => (

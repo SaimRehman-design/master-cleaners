@@ -1,9 +1,21 @@
 @import "tailwindcss";
 
 @theme {
-  --color-mint: #EAF9E6;
-  --color-mint-deep: #D3F0CC;
+  --color-mint: #D2F1C9;
+  --color-mint-deep: #B4E3A8;
   --color-ink: #0A0A0A;
   --color-leaf: #16A34A;
   --color-leaf-dark: #15803D;
+
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Plus Jakarta Sans", "Inter", ui-sans-serif, system-ui, sans-serif;
+}
+
+@layer base {
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-display);
+    letter-spacing: -0.02em;
+  }
 }
