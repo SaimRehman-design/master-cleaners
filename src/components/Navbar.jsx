@@ -26,14 +26,17 @@ export default function Navbar() {
   return (
     <header className="sticky top-0 z-50 border-b border-mint-deep bg-mint/95 backdrop-blur">
       <nav className="mx-auto flex max-w-6xl items-center justify-between px-5 py-4">
-        <Link to="/" className="flex items-center gap-2 text-xl font-bold text-ink">
-          <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-leaf text-white">
-            <Sparkles size={20} />
-          </span>
-          Master Cleaners
-        </Link>
+        {/* Left: logo */}
+        <div className="md:flex-1">
+          <Link to="/" className="flex items-center gap-2 text-xl font-bold text-ink">
+            <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-leaf text-white">
+              <Sparkles size={20} />
+            </span>
+            Master Cleaners
+          </Link>
+        </div>
 
-        {/* Desktop links */}
+        {/* Center: links (desktop) */}
         <ul className="hidden items-center gap-8 md:flex">
           {links.map((l) => (
             <li key={l.to}>
@@ -42,15 +45,17 @@ export default function Navbar() {
               </NavLink>
             </li>
           ))}
-          <li>
-            <Link
-              to="/contact"
-              className="rounded-full bg-ink px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-leaf-dark"
-            >
-              Book Now
-            </Link>
-          </li>
         </ul>
+
+        {/* Right: Book Now (desktop) */}
+        <div className="hidden md:flex md:flex-1 md:justify-end">
+          <Link
+            to="/contact"
+            className="rounded-full bg-ink px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-leaf-dark"
+          >
+            Book Now
+          </Link>
+        </div>
 
         {/* Mobile toggle */}
         <button
