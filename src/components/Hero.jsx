@@ -5,7 +5,7 @@ import { Phone, CheckCircle2 } from 'lucide-react'
 export default function Hero() {
   return (
     <section id="home" className="bg-mint">
-      <div className="mx-auto grid max-w-6xl items-center gap-12 px-5 py-16 md:grid-cols-2 md:py-24">
+      <div className="mx-auto grid max-w-6xl items-center gap-10 px-5 py-8 md:grid-cols-2 md:py-12">
         <div>
           <p className="mb-4 inline-block rounded-full border border-mint-deep bg-white px-4 py-1 text-sm font-semibold text-ink">
             Professional Cleaning Services in Lahore
