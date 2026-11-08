@@ -1,25 +1,21 @@
-import Navbar from './components/Navbar'
-import Hero from './components/Hero'
-import Services from './components/Services'
-import About from './components/About'
-import WhyChooseUs from './components/WhyChooseUs'
-import Gallery from './components/Gallery'
-import Contact from './components/Contact'
-import Footer from './components/Footer'
+import { Routes, Route } from 'react-router-dom'
+import Layout from './components/Layout'
+import Home from './Pages/Home'
+import AboutPage from './Pages/About'
+import ServicesPage from './Pages/Servicespage'
+import GalleryPage from './Pages/Gallerypage'
+import ContactPage from './Pages/ContactPage'
 
 export default function App() {
   return (
-    <div className="font-sans text-slate-900">
-      <Navbar />
-      <main>
-        <Hero />
-        <Services />
-        <About />
-        <WhyChooseUs />
-        <Gallery />
-        <Contact />
-      </main>
-      <Footer />
-    </div>
+    <Routes>
+      <Route element={<Layout />}>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<AboutPage />} />
+        <Route path="/services" element={<ServicesPage />} />
+        <Route path="/gallery" element={<GalleryPage />} />
+        <Route path="/contact" element={<ContactPage />} />
+      </Route>
+    </Routes>
   )
 }

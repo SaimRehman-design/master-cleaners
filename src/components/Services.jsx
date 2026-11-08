@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import {
   Sparkles,
   Home,
@@ -69,12 +70,12 @@ export default function Services() {
               </div>
               <h3 className="mt-5 text-lg font-bold text-slate-900">{title}</h3>
               <p className="mt-2 text-sm leading-relaxed text-slate-600">{desc}</p>
-              <a
-                href="#contact"
-                className="mt-4 inline-block text-sm font-semibold text-teal-600 hover:text-teal-700"
-              >
-                Book this service →
-              </a>
+              <Link
+  to="/contact"
+  className="mt-4 inline-block text-sm font-semibold text-teal-600 hover:text-teal-700"
+>
+  Book this service →
+</Link>
             </div>
           ))}
         </div>
@@ -95,12 +96,12 @@ export default function Services() {
               </p>
             </div>
           </div>
-          <a
-            href="#contact"
-            className="shrink-0 rounded-full bg-teal-500 px-7 py-3 font-semibold text-white transition hover:bg-teal-400"
-          >
-            Request a Quote
-          </a>
+          <Link
+  to="/contact"
+  className="shrink-0 rounded-full bg-teal-500 px-7 py-3 font-semibold text-white transition hover:bg-teal-400"
+>
+  Request a Quote
+</Link>
         </div>
       </div>
     </section>

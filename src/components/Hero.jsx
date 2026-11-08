@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import { Phone, CheckCircle2 } from 'lucide-react'
 
 export default function Hero() {
@@ -17,12 +18,12 @@ export default function Hero() {
           </p>
 
           <div className="mt-8 flex flex-col gap-4 sm:flex-row">
-            <a
-              href="#contact"
-              className="rounded-full bg-teal-500 px-8 py-4 text-center font-semibold text-white shadow-lg shadow-teal-500/30 transition hover:bg-teal-600"
-            >
-              Book Your Cleaning Service Today
-            </a>
+          <Link
+  to="/contact"
+  className="rounded-full bg-teal-500 px-8 py-4 text-center font-semibold text-white shadow-lg shadow-teal-500/30 transition hover:bg-teal-600"
+>
+  Book Your Cleaning Service Today
+</Link>
             <a
               href="tel:03288129327"
               className="flex items-center justify-center gap-2 rounded-full border border-slate-300 px-8 py-4 font-semibold text-slate-800 transition hover:border-teal-500 hover:text-teal-600"
